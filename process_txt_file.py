@@ -1,8 +1,8 @@
 from cltk.tokenize.latin.sentence import SentenceTokenizer
 from cltk.stem.latin.j_v import JVReplacer
-from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 from cltk.tag import ner
 from unidecode import unidecode
+from pycollatinus import Lemmatiseur
 
 class TextFile:
     """
@@ -110,7 +110,7 @@ class Sentence:
     def remove_non_alpha(self):
         """ Return a string only consisting of words """
 
-        translation_table = dict.fromkeys(map(ord, ",0123456789(){}[]*<>-+'†"), None)
+        translation_table = dict.fromkeys(map(ord, ".:;!?,0123456789(){}[]*<>-+'†"), None)
         self.sentence = self.sentence.translate(translation_table)
         return self.sentence
 
@@ -155,11 +155,14 @@ class Word:
         returns True or False if the enclitic 'que' is
         present
 
+    lower_case()
+        returns lowercase form of word
+
 
     """
 
     def __init__(self,word):
-        self.word = word
+        self.word = word.strip()
 
     def __repr__(self):
         return self.word
@@ -176,7 +179,7 @@ class Word:
                 return False
 
     def identify_enclitic_que(self):
-        """ Return True if there's an enclitic 'que' """
+        """ Return word without enclitic 'que' """
 
         que_adverbs = [
                 'atque','denique','itaque','namque','neque',
@@ -197,18 +200,19 @@ class Word:
         if len(self.word) > 3:
             if self.word[-3:] == 'que':
                 if self.word.lower() not in que_words:
-                    return True
-                else:
-                    return False
-            else:
-                return False
-        else:
-            return False
+                    self.word = self.word[:-3]
+
+        return self.word
+
+    def lower_case(self):
+        """ Return lowercase form of word """
+        self.word = self.word.lower()
+        return self.word
 
 def compile_lemmata(filename):
     """ Given a .txt file, returns a list of lemmata ignoring names """
 
-    unique_word_forms = ['que',]
+    unique_word_forms = {}
 
     # compile list of unique word forms
 
@@ -221,41 +225,30 @@ def compile_lemmata(filename):
         sentence.remove_non_alpha()
         sentence.remove_macrons()
         sentence.replace_j_and_v()
+
         words = sentence.tokenize()
         for word in words:
-            if word not in unique_word_forms:
-                unique_word_forms.append(word)
+            word = Word(word)
+            if not word.identify_proper_noun():
+                word.lower_case()
+                form = word.identify_enclitic_que()
+                if form not in unique_word_forms:
+                    unique_word_forms.update({form : 1})
+                else:
+                    unique_word_forms[form] += 1
 
-    # remove proper nouns and enclitic 'que'
+    return unique_word_forms
 
-    for word in unique_word_forms:
-        word_form = Word(word)
-        if word_form.identify_proper_noun():
-            unique_word_forms.remove(word)
-        elif word_form.identify_enclitic_que():
-            unique_word_forms.remove(word)
-            real_word = word[:-3]
-            if real_word not in unique_word_forms:
-                unique_word_forms.append(real_word)
-
-    # lowercase everything
-
-    unique_word_forms = [word.lower() for word in unique_word_forms]
-
-    # lemmatize unique_word_forms
-
-    lemmatizer = BackoffLatinLemmatizer()
-
-    lemma_pair = lemmatizer.lemmatize(unique_word_forms)
-
-    # make list of unique lemmata
-
-    unique_lemmata = []
-
-    [unique_lemmata.append(pair[1]) for pair in lemma_pair if pair[1] not in unique_lemmata]
-
-    return unique_lemmata
+def list_possible_lemmata(word):
+    analyzer = Lemmatiseur()
+    potential_lemmata = analyzer.lemmatise_multiple(word)
+    for lemma in potential_lemmata:
+        for interpretation in lemma:
+            if interpretation['lemma'].islower():
+                print(interpretation)
 
 filename = 'allAPReadings.txt'
 word_list = compile_lemmata(filename)
-print(word_list)
+for word in word_list:
+    list_possible_lemmata(word)
+    wait = input("PRESS ENTER TO CONTINUE.")
