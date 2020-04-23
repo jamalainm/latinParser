@@ -2,7 +2,7 @@ from cltk.tokenize.latin.sentence import SentenceTokenizer
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
 from unidecode import unidecode
-from pycollatinus import Lemmatiseur
+import csv
 
 class TextFile:
     """
@@ -37,9 +37,8 @@ class TextFile:
         contents = ''
 
         with open(f"./{self.file_name}", "r") as myfile:
-            for myline in myfile:
-                contents += myline
-
+            contents = myfile.read()
+            
         return contents
 
     def sentence_tokenizer(self):
@@ -181,21 +180,24 @@ class Word:
     def identify_enclitic_que(self):
         """ Return word without enclitic 'que' """
 
-        que_adverbs = [
-                'atque','denique','itaque','namque','neque',
+        que_words = [
+                'atque','dēnique','itaque','namque','neque',
                 'quoque','undique'
                 ]
-        que_inflected = [
-                'plerique','plerumque','plerisque','quaeque',
-                'quaque','quasque','quemque','quique','quisque',
-                'quodque','quorumque','uterque','utramque','utraque',
-                'utrisque','utriusque','utrumque'
-                ]
-        cumque_inflected = ['quascumque','quibuscumque',
-                'quodcumque','quaecumque'
+        base_forms = [
+                'quis','quid','cuius','cui','quō','quā','quī',
+                'quōrum','quārum','quibus','quae','quod',
+                'quōs','quās',
+                "uter","utra","utrum","utrīus","utrius","utrī",
+                "utram","utrō","utrā","utrae","utrōrum","utrārum",
+                "utrīs","utrōs","utrās",
+                "plērus","plēra","plērum","plērī","plērae","plērō",
+                "plērum","plērā","plērōrum","plērārum","plērīs",
+                "plērōs","plērās"
                 ]
         
-        que_words = que_adverbs + que_inflected + cumque_inflected
+        [que_words.append(word + "que") for word in base_forms]
+        [que_words.append(word + "cumque") for word in base_forms]
 
         if len(self.word) > 3:
             if self.word[-3:] == 'que':
@@ -223,7 +225,7 @@ def compile_lemmata(filename):
         sentence.remove_final_punctuation()
         sentence.remove_newlines()
         sentence.remove_non_alpha()
-        sentence.remove_macrons()
+#        sentence.remove_macrons()
         sentence.replace_j_and_v()
 
         words = sentence.tokenize()
@@ -249,6 +251,10 @@ def list_possible_lemmata(word):
 
 filename = 'allAPReadings.txt'
 word_list = compile_lemmata(filename)
-for word in word_list:
-    list_possible_lemmata(word)
-    wait = input("PRESS ENTER TO CONTINUE.")
+word_list = sorted(word_list.items())
+
+with open("unique_forms.csv","w",newline="") as f:
+    csv_writer = csv.writer(f, delimiter=",",
+            quotechar="|", quoting=csv.QUOTE_MINIMAL)
+    for key,value in word_list:
+        csv_writer.writerow([value,key])
