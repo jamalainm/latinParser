@@ -244,8 +244,8 @@
 1,aluum,aluo,aluus
 1,amantem,amā,amō
 1,amārō,amāro,amārus
-1,ambactōs,ambacto,ambigō
-1,ambīre,ambī,ambactus
+1,ambactōs,ambacto,ambactus
+1,ambīre,ambī,ambeō
 3,ambiorīge,ambiorīg,Ambiorīx
 4,ambiorīgem,ambiorīg,Ambiorīx
 1,ambiorīgis,ambiorīg,Ambiorīx
@@ -549,7 +549,7 @@
 1,calamitātis,calamitāt,calamitās
 1,calcāribus,calcār,calcar
 1,cālīgat,cālīgā,cālīgō
-1,calor,calōr,calr
+1,calor,calōr,calor
 2,campīs,campo,campus
 1,candentī,cande,candeō
 1,canēbat,cane,canō
@@ -660,7 +660,7 @@
 1,circā,circā,circā
 7,circiter,circiter,circiter
 1,circuitū,circuitu,circuitus
-13,circum,circum,curcum
+13,circum,circum,circum
 1,circumcīdere,circumcīde,circumcīdō
 1,circumdederant,circumded,circumdō
 1,circumsistēbant,circumsiste,circumsistō
@@ -797,8 +797,8 @@
 1,commodē,commodo,commodus
 1,commodius,commodo,commodus
 1,commodō,commodo,commodus
-1,commōtīs,commōto,commoveō
-1,commōtus,commōto,commoveō
+1,commōtīs,commōto,commoueō
+1,commōtus,commōto,commoueō
 1,commūne,commūni,commūnis
 1,commūnem,commūni,commūnis
 3,commūnī,commūni,commūnis
@@ -1338,10 +1338,10 @@
 1,distribūtīs,distribūto,distribuō
 1,distulērunt,distul,differō
 2,disputātiōne,disputātiōn,disputātiō
-1,dīte,dīt,dīves
-1,dītī,dīt,dīves
-1,dītis,dīt,dīves
-1,dītissimus,dīt,dīves
+1,dīte,dīt,dīues
+1,dītī,dīt,dīues
+1,dītis,dīt,dīues
+1,dītissimus,dīt,dīues
 1,dīuellere,dīuelle,dīuellō
 1,dīuersa,dīuerso,dīuersus
 1,dīuersōs,dīuerso,dīuersus
@@ -1470,7 +1470,7 @@
 1,ēmissam,ēmisso,ēmittō
 1,ēmīssīs,ēmīsso,ēmittō
 1,ēmittit,ēmitte,ēmittō
-1,ēmōta,ēmōto,ēmoveō
+1,ēmōta,ēmōto,ēmoueō
 1,enceladō,encelado,Enceladus
 5,enim,enim,enim
 1,ēnsem,ēnsi,ēnsis
@@ -1518,7 +1518,7 @@
 1,eram,erā,sum
 20,erant,erā,sum
 27,erat,erā,sum
-1,erebī,erebo,erebus
+1,erebī,erebo,Erebus
 3,ergō,ergō,ergō
 1,eris,eri,ergō
 1,erunt,eri,sum
@@ -2594,9 +2594,9 @@
 1,latentia,latē,lateō
 1,latet,latē,lateō
 1,latebrās,latebra,latebra
-1,latīnī,latīno,latīnus
-1,latīnōs,latīno,latīnus
-1,latīnum,latīno,latīnus
+1,latīnī,latīno,Latīnus
+1,latīnōs,latīno,Latīnus
+1,latīnum,latīno,Latīnus
 2,latiō,latio,Latium
 1,lātitūdinem,lātitūdon,lātitūdō
 6,lātē,lāto,lātus
@@ -2737,7 +2737,7 @@
 1,magistrātum,magistrātu,magistrātus
 3,magistrātūs,magistrātu,magistrātus
 1,magister,magistro,magister
-1,magnanimum,magnanimo,maānanimus
+1,magnanimum,magnanimo,magnanimus
 1,māgnifica,māgnifico,māgnificus
 4,māgnitūdine,māgnitūdon,
 1,māgnitūdinem,māgnitūdon,
@@ -3105,9 +3105,9 @@
 1,nōbilibus,nōbili,nōbilis
 1,nōbilissimōs,nōbili,nōbilis
 1,nōbilissimus,nōbili,nōbilis
-1,mōbilitāte,nōbilitāt,nōbilitāš
-1,mōbilitātem,nōbilitāt,nōbilitāš
-1,nōbilitātis,nōbilitāt,nōbilitāš
+1,mōbilitāte,nōbilitāt,nōbilitās
+1,mōbilitātem,nōbilitāt,nōbilitās
+1,nōbilitātis,nōbilitāt,nōbilitās
 2,nōbīs,nōbīs,nōs
 1,nocērī,nocē,noceō
 1,nocitum,nocito,noceō
@@ -3205,7 +3205,7 @@
 1,obiectam,obiecto,obiciō
 1,obiectū,obiectu,obiciō
 1,obitūs,obitu,obeō
-1,oblīte,oblīto,oblīviscor
+1,oblīte,oblīto,oblīuiscor
 1,obmūtuit,obmūtu,obūmtescō
 1,obnīxus,obnīxo,obnītor
 1,obortīs,oborto,oborior

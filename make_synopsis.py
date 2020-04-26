@@ -134,6 +134,8 @@ class Stem:
         """
         if len(rhotacized) < 2:
             return rhotacized
+        elif rhotacized[-3] == 'i':
+            return rhotacized
         elif rhotacized[-2] not in self.short_vowels:
             return rhotacized
         else:
@@ -159,6 +161,20 @@ class Stem:
         """
         if self.stem[-1] in self.dentals:
             return self.stem[:-1] + "s"
+        elif self.stem[-1] == 'r':
+            if self.stem[-2] in self.long_vowels:
+                return self.stem[:-2] + self.shorten_vowel(self.stem[-2]) + 'r'
+            else:
+                return self.stem
+        elif self.stem[-1] == 'n':
+            if self.stem[-2] == 'e':
+                return self.stem
+            elif self.stem[-2] in self.short_vowels:
+                return self.stem[:-2] + self.lengthen_vowel(self.stem[-2])
+            else:
+                return self.stem[:-1]
+        elif self.stem[-1] in self.velars:
+            return self.stem[:-1] + 'x'
         elif self.stem[-1] == "e":
             return self.stem[:-1] + "ēs"
         elif self.stem[-1] == 's':
@@ -187,7 +203,9 @@ class Stem:
         """ Assumes this is a word final [m] and adds to stem """
         if self.stem[-1] == "o":
             return self.stem[:-1] + "um"
-        elif self.stem[-1] in self.short_vowels:
+        elif self.stem[-1] == 'i':
+            return self.stem[:-1] + 'em'
+        elif self.stem[-1] in self.short_vowels and self.stem != 'i':
             return self.stem + 'm'
         elif self.stem[-1] in self.long_vowels:
             short_vowel = self.shorten_vowel(self.stem[-1])
@@ -375,6 +393,14 @@ fifth = Noun('spē','feminine')
 sixth = Noun('cīvi','masculine')
 seventh = Noun('fīlio','masculine')
 eighth = Noun('asino','masculine')
+ninth = Noun('rēg','masculine')
+tenth = Noun('prīncep','masculine')
+eleventh = Noun('homon','masculine')
+twelfth = Noun('sermōn','masculine')
+thirteenth = Noun('sacerdōt','masculine')
+fourteenth = Noun('labōr','masculine')
+fifteenth = Noun('flāmen','masculine')
+sixteenth = Noun('hiem','feminine')
 
-words = [first,second,third,fourth,fifth,sixth,seventh,eighth]
-[print(word.voc_sg()) for word in words]
+words = [first,second,third,fourth,fifth,sixth,seventh,eighth,ninth,tenth,eleventh,twelfth,thirteenth,fourteenth,fifteenth,sixteenth]
+[print(word.nom_sg(), word.gen_sg(), word.dat_sg(), word.acc_sg(), word.abl_sg()) for word in words]
