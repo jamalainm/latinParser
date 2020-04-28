@@ -1281,7 +1281,7 @@
 7,diem,diē,diēs
 1,diērum,diē,diēs
 11,diēs,diē,diēs
-2,differunt,differ,,differō
+2,differunt,differ,differō
 1,difficile,difficili,difficilis
 1,difficilēs,difficili,difficilis
 1,difficultās,difficultāt,difficultās
@@ -1360,9 +1360,9 @@
 2,dīxisset,dīx,dīcō
 2,dīxit,dīx,dīcō
 1,docēbant,docē,doceō
-1,docēbantur,docēdoceō
-2,docet,docēdoceō
-1,docuerant,docudoceō
+1,docēbantur,docē,doceō
+2,docet,docē,doceō
+1,docuerant,docu,doceō
 1,dolēns,dolē,doleō
 1,dolī,dolo,dolus
 1,dolīs,dolo,dolus
@@ -1794,7 +1794,7 @@
 1,flētū,flētu,fleō
 1,flētūs,flētu,fleō
 1,flōrentia,flōrē,flōreō
-1,flōrea,flōreo,
+1,flōrea,flōreo,flōreus
 1,flōrēs,flōs,flōs
 2,fluctibus,fluctu,fluctus
 2,flūctibus,flūctu,fluctus
@@ -2494,8 +2494,8 @@
 1,iste,isto,iste
 1,istō,isto,iste
 8,ita,ita,ita
-1,ītaliā,ītalia,
-1,ītaliae,ītalia,
+1,ītaliā,ītalia,Ītalia
+1,ītaliae,ītalia,Ītalia
 10,ītaliam,ītalia,Ītalia
 1,italī,italo,Ītalia
 6,itaque,itaque,itaque
@@ -2739,8 +2739,8 @@
 1,magister,magistro,magister
 1,magnanimum,magnanimo,magnanimus
 1,māgnifica,māgnifico,māgnificus
-4,māgnitūdine,māgnitūdon,
-1,māgnitūdinem,māgnitūdon,
+4,māgnitūdine,māgnitūdon,māgnitūdo
+1,māgnitūdinem,māgnitūdon,māgnitūdo
 1,magna,magno,māgnus
 4,magnā,magno,māgnus
 3,magnam,magno,māgnus
@@ -3436,8 +3436,8 @@
 2,paucīs,pauco,paucus
 1,paucōs,pauco,paucus
 3,paulātim,paulātim,paulātim
-4,paulō,paulo,paulum
-5,paulum,paulum,paulum
+4,paulō,paulo,paulus
+5,paulum,paulum,paulus
 1,pauor,pauōr,pauor
 6,pectora,pectos,pectus
 5,pectore,pectos,pectus
@@ -3538,7 +3538,7 @@
 1,petēbant,pete,petō
 1,petēbās,pete,petō
 1,petendā,pete,petō
-1,petentibus,pete,
+1,petentibus,pete,petō
 2,petere,pete,petō
 1,peterēs,pete,petō
 1,peterētur,pete,petō
@@ -3898,7 +3898,7 @@
 1,quaestiōnem,quaestiōn,quaestiō
 1,quaesīuit,quaesīu,quaerō
 2,quaestōrem,quaestōr,quaestor
-1,quaestōribus,quaestōr,
+1,quaestōribus,quaestōr,quaestor
 1,quaestūs,quaestu,quaestus
 1,quālem,quāli,quālis
 1,quālēs,quāli,quālis
@@ -4422,8 +4422,8 @@
 1,solum,solo,solum
 1,sōlā,sōlo,sōlus
 1,sōlum,sōlo,sōlus
-1,soluērunt,soluō,
-1,soluite,solue,soluō
+1,soluērunt,solu,soluō,
+1,soluite,solu,soluō
 1,soluō,solue,soluō
 1,soluuntur,solue,soluō
 2,somnī,somno,somnus
@@ -5229,8 +5229,8 @@
 1,ūsī,ūso,ūtor
 2,ūsum,ūso,ūtor
 2,ūsus,ūso,ūtor
-1,uxōrēs,uxōr,
-1,uxōrius,uxōr,
+1,uxōrēs,uxōr,uxor
+1,uxōrius,uxōr,uxor
 2,ūsū,ūsu,ūsus
 3,ūsuī,ūsu,ūsus
 61,ut,ut,ut
